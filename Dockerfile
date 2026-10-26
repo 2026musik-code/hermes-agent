@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
     && rm -rf /var/lib/apt/lists/*
 
 # Install hermes-agent dari PyPI
-RUN pip install --no-cache-dir hermes-agent
+RUN pip install --no-cache-dir hermes-agent aiohttp
 
 # Fixed data dir (writable oleh UID acak platform)
 ENV HERMES_HOME=/data/.hermes
