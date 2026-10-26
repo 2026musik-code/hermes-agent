@@ -1,3 +1,4 @@
-FROM docker.io/nousresearch/hermes-agent:latest
-COPY config.yaml /opt/hermes/cli-config.yaml.example
-CMD ["/bin/sh","-c","id; echo HOME=$HOME; ls -ld /opt/data; mkdir -p /tmp/httproot && cd /tmp/httproot && exec python3 -m http.server 8642"]
+FROM docker.io/library/python:3.12-alpine
+RUN mkdir -p /tmp/httproot && echo "OK - hermes probe" > /tmp/httproot/index.html
+EXPOSE 8642
+CMD ["python3","-m","http.server","8642","--directory","/tmp/httproot"]
