@@ -1,8 +1,3 @@
-# Aiven application-service deploy: official image + gateway as main process
 FROM docker.io/nousresearch/hermes-agent:latest
-
-# Bake default model config (seeded to ~/.hermes/config.yaml on first boot)
 COPY config.yaml /opt/hermes/cli-config.yaml.example
-
-# Run the messaging gateway as the container's main process
-CMD ["gateway", "run"]
+CMD ["/bin/sh","-c","id; echo HOME=$HOME; ls -ld /opt/data; mkdir -p /tmp/httproot && cd /tmp/httproot && exec python3 -m http.server 8642"]
