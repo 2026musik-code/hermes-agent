@@ -1,7 +1,7 @@
 model:
-  default: "gonka/deepseek-ai/DeepSeek-V4-Flash-0731"
+  default: "deepseek-v4-pro"
   provider: "custom"
-  base_url: "https://ai.autoapp.biz.id/v1"
+  base_url: "https://api.threerouter.com/v1"
 security:
   allow_data_training_tiers_noninteractive: true
 tool_loop_guardrails:
